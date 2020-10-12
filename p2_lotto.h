@@ -15,18 +15,66 @@ void main_lotto(void) {
   scanf("%s", ticket);
 
   //TODO: Your code goes here
-  int i=0;
-  int count=0;
-  //Avoiding any issues if the user inputs an empty string
-  while(ticket!=NULL && i<4){
-    if(ticket[i]==winner[i]){count+=1;}
-    i++;
-  }
+   while(temp_winner!=0)
+   {
 
-  //Switch statement made in if cases
-  if (count==4){printf("1st Place winner");}
-  else if (count==3){printf("2nd Place winner");}
-  else if (count==2){printf("3rd Place winner");}
-  else printf("Better luck next time!");
+//running loop for each value of winner ticket
 
+
+       d=temp_winner%10;
+       temp_ticket=atoi(ticket);
+       while(temp_ticket!=0)
+       {
+
+//running loop for each value of user input
+           l=temp_ticket%10;
+           if(d==l) //if winner ticket value matches with value with user input
+           {
+               count++;
+               break;
+           }
+           temp_ticket=temp_ticket/10;
+       }
+       temp_winner=temp_winner/10;
+   }
+
+   if(count==4)
+   {
+
+//if all 4 digits matches we check for if the numbers are same for 1st prize
+       if(atoi(winner)==atoi(ticket))
+       {
+           printf("1st prize!\n");
+       }
+       else
+       {
+           printf("No Prize! Better luck next time!\n");
+       }
+   }
+
+//if 3 digits matches then 2nd prize
+   else if(count==3)
+   {
+       printf("2nd prize!\n");
+   }
+
+//if 2 digits matches then 3rd prize
+   else if(count==2)
+   {
+       printf("3rd prize!\n");
+   }
+
+//else better luck next time
+   else
+   {
+       printf("No Prize! Better luck next time!\n");
+   }
 }
+
+//main method to start the program
+
+void main()
+{
+main_lotto();
+}
+
