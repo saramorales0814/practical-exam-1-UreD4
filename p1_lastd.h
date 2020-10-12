@@ -12,8 +12,8 @@ void main_lastd(void) {
   scanf("%d %d", &x, &y);
 
   //changed dived to mod
-  int x_digit = x % 10;
-  int y_digit = y % 10;
+  int x_digit = x / 10;
+  int y_digit = y / 10;
 
   if(x_digit == y_digit) {
     printf("TRUE");
